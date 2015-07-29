@@ -1,0 +1,29 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+leisure-lists/dist
+leisure-lists/tmp
+
+# dependencies
+leisure-lists/node_modules
+leisure-lists/bower_components
+
+# misc
+leisure-lists/.sass-cache
+leisure-lists/connect.lock
+leisure-lists/coverage/*
+leisure-lists/libpeerconnection.log
+leisure-lists/npm-debug.log
+leisure-lists/testem.log
+
+# Ignore bundler config.
+leisure_lists_api/.bundle
+
+# Ignore the default SQLite database.
+leisure_lists_api/db/*.sqlite3
+leisure_lists_api/db/*.sqlite3-journal
+
+# Ignore all logfiles and tempfiles.
+leisure_lists_api/log/*
+!leisure_lists_api/log/.keep
+leisure_lists_api/tmp
