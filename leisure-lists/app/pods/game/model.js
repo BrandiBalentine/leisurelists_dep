@@ -6,5 +6,9 @@ export default DS.Model.extend({
   system: DS.attr('string'),
   image: DS.attr('string'),
   createdAt: DS.attr('date'),
-  updatedAt: DS.attr('date')
+  updatedAt: DS.attr('date'),
+
+  capitalizeTitle: function() {
+    return this.get("title").toUpperCase();
+  }.property("title")
 });

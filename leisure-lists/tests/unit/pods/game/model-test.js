@@ -1,6 +1,6 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('games', 'Unit | Model | games', {
+moduleForModel('game', 'Unit | Model | game', {
   // Specify the other units that are required for this test.
   needs: []
 });
