@@ -13,6 +13,10 @@ class Api::GamesController < ApplicationController
     render json: game
   end
 
+  def create
+    render json: Game.create!(game_params)
+  end
+
   def game_params
     params.require(:game).permit(:title, :system, :release_date, :image)
   end

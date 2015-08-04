@@ -9,6 +9,8 @@ export default DS.Model.extend({
   updatedAt: DS.attr('date'),
 
   capitalizeTitle: function() {
-    return this.get("title").toUpperCase();
+    if (this.get("title")) {
+      return this.get("title").toUpperCase();
+    }
   }.property("title")
 });
