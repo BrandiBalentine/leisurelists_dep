@@ -5,4 +5,6 @@
 {{input value=model.system}}
 <label>Image:</label>
 {{input value=model.image}}
+<img src={{model.image}} />
 <button {{action create}}>Create</button>
+{{#link-to 'games'}}Back{{/link-to}}
