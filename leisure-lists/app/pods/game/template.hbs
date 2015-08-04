@@ -1,5 +1,5 @@
-{{outlet}}
-<h1>{{header}}</h1>
-{{#each model as |game|}}
-  <h2>{{game.capitalizeTitle}}</h2>
-{{/each}}
+<h1>{{model.capitalizeTitle}}</h1>
+<p>{{model.system}}</p>
+<p>{{model.releaseDate}}</p>
+<img src={{model.image}} />
+{{#link-to 'game.edit' model}}Edit{{/link-to}}

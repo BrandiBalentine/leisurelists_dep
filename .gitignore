@@ -27,3 +27,7 @@ leisure_lists_api/db/*.sqlite3-journal
 leisure_lists_api/log/*
 !leisure_lists_api/log/.keep
 leisure_lists_api/tmp
+
+# Ignore all DS_Store files.
+*/.DS_Store
+.DS_Store

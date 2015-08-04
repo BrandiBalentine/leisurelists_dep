@@ -1,0 +1,6 @@
+{{input value=model.title}}
+{{input value=model.system}}
+{{input value=model.image}}
+<img src={{model.image}} />
+<button {{action save}}>Save</button>
+{{#link-to 'game' model}}Back{{/link-to}}

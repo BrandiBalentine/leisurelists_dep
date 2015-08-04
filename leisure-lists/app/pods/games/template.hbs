@@ -1,0 +1,5 @@
+{{outlet}}
+<h1>{{header}}</h1>
+{{#each model as |game|}}
+  {{#link-to 'game' game}}<h2>{{game.capitalizeTitle}}</h2>{{/link-to}}
+{{/each}}
