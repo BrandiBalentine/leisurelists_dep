@@ -5,8 +5,8 @@ export default Ember.Controller.extend({
     return this.get('model').save();
   },
   delete: function() {
-    this.get('model').deleteRecord();
-    this.get('model').save();
-
+    this.get('model').destroyRecord().then(function() {
+      return this.transitionToRoute('games');
+    }.bind(this));
   }
 });

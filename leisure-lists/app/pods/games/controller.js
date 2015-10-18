@@ -7,5 +7,5 @@ export default Ember.Controller.extend({
 
   gamesCount: function() {
     return this.get("model.length");
-  }.property("model")
+  }.property("model.length")
 });
