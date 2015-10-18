@@ -7,5 +7,13 @@ export default Ember.Route.extend({
 
   renderTemplate: function() {
     return this.render('games.new', { into: 'application' });
+  },
+
+  actions: {
+    willTransition: function() {
+      if (this.get('currentModel')){
+        return this.get('currentModel').rollbackAttributes();
+      }
+    }
   }
 });
