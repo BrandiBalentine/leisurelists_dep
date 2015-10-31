@@ -3,7 +3,7 @@
 <label>System:</label>
 {{input value=model.system}}
 <label>Image:</label>
-{{input value=model.image}}
+{{#game-image-uploader game=model}}{{/game-image-uploader}}
 <img src={{model.image}} />
 <button {{action create}}>Create</button>
 {{#link-to 'games'}}Back{{/link-to}}

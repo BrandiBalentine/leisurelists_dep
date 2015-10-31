@@ -1,6 +1,24 @@
-<h1>{{model.capitalizeTitle}}</h1>
-<p>{{model.system}}</p>
-<p>{{model.releaseDate}}</p>
-<img src={{model.image}} />
+<div>
+  <p>
+    <span>Title:</span>
+    <span>{{game.capitalizeTitle}}</span>
+  </p>
+</div>
+<div>
+  <p>
+    <span>System:</span>
+    <span>{{game.system}}</span>
+  </p>
+</div>
+<div>
+  <p>
+    <span>Rating:</span>
+    <span>{{game.rating}}</span>
+  </p>
+</div>
+<div>
+  <img src={{game.image}} height=100 />
+</div>
+
 {{#link-to 'game.edit' model}}Edit{{/link-to}}
 {{#link-to 'games'}}Back{{/link-to}}

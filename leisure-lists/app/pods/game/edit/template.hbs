@@ -1,7 +1,22 @@
-{{input value=model.title}}
-{{input value=model.system}}
-{{input value=model.image}}
-<img src={{model.image}} />
+<div>
+  <h3>Title</h3>
+  {{input value=game.title}}
+</div>
+<div>
+  <h3>System</h3>
+  {{input value=game.system}}
+</div>
+<div>
+  <h3>Rating</h3>
+  {{input value=game.rating}}
+</div>
+<div>
+  <h3>Image</h3>
+  {{#game-image-uploader game=game}}{{/game-image-uploader}}
+</div>
+<div>
+  <img src={{game.image}} height=100 />
+</div>
 <button {{action save}}>Save</button>
 <button {{action delete}}>Delete</button>
 {{#link-to 'games'}}Back{{/link-to}}

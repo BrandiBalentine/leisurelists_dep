@@ -1,5 +1,5 @@
 <h1>{{header}}</h1>
-{{#each model as |game|}}
+{{#each sortedGames as |game|}}
   {{#link-to 'game' game}}<h2>{{game.capitalizeTitle}}</h2>{{/link-to}}
 {{/each}}
 {{#link-to 'games.new'}}Add Game{{/link-to}}
