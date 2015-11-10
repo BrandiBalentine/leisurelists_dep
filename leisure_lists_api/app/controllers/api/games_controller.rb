@@ -21,6 +21,8 @@ class Api::GamesController < ApplicationController
     render json: Game.find(params[:id]).destroy!
   end
 
+  private
+
   def game_params
     params.require(:game).permit(:title, :system, :release_date, :image, :rating)
   end

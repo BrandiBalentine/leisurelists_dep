@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('game', { path: '/games/:game_id' }, function() {
     this.route('edit');
   });
+  this.route('sign-in');
 });
 
 export default Router;
