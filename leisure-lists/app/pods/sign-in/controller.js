@@ -18,6 +18,7 @@ export default Ember.Controller.extend({
       .done(function(data){
         this.store.pushPayload("user", data);
         this.get('cookie').setCookie("session_id", data.user.user_sessions[data.user.user_sessions.length - 1].session_id);
+        this.transitionToRoute('games');
       }.bind(this));
     }
   }
