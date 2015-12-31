@@ -12,6 +12,12 @@ class Api::UsersController < ApplicationController
   end
 
   def show
+    user_session = UserSession.find_by(session_id: params[:id])
+    if user_session
+      return render json: user_session.user
+    else
+      return render text: "Access Denied", status: :unauthorized
+    end
   end
 
   private
