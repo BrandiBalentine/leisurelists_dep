@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
-  isSignedIn: false,
   redirectToLogin: function(){
     this.transitionTo('sign-in');
   },
@@ -11,7 +10,7 @@ export default Ember.Mixin.create({
     if (sessionId) {
       this.store.find('user', sessionId).then(function(user){
         this.set('currentUser', user);
-        this.set('isSignedIn', true);
+        this.get('currentUser').set('sessionId', sessionId);
       }.bind(this),
       function(){
         this.redirectToLogin();
@@ -24,6 +23,5 @@ export default Ember.Mixin.create({
   setupController: function(controller, model){
     this._super(controller, model);
     controller.set('currentUser', this.get('currentUser'));
-    controller.set('isSignedIn', this.get('isSignedIn'));
   }
 });

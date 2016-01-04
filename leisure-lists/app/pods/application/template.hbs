@@ -1,6 +1,6 @@
 <h2 id="title">Welcome to Leisure Lists</h2>
-{{#if isSignedIn}}
-  {{#link-to "sign-in"}}Sign out{{/link-to}}
+{{#if currentUser.signedIn}}
+  <button {{action "signOut"}}>Sign out</button>
 {{else}}
   {{#link-to "sign-in"}}Sign in{{/link-to}}
 {{/if}}

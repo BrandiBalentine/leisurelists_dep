@@ -20,6 +20,10 @@ export default Ember.Controller.extend({
         data.user.session_id = sessionId;
         this.store.pushPayload("user", data);
         this.get('cookie').setCookie("session_id", sessionId);
+        this.store.find('user', sessionId).then(function(user){
+          user.set('sessionId', sessionId);
+          this.controllerFor('application').set("currentUser", user);
+        }.bind(this));
         this.transitionToRoute('games');
       }.bind(this));
     }
