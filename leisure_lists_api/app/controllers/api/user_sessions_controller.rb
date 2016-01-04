@@ -14,6 +14,15 @@ class Api::UserSessionsController < ApplicationController
     end
   end
 
+  def logout
+    if user_session = UserSession.find_by(session_id: params[:session_id])
+      user_session.destroy!
+      return render nothing: true
+    else
+      return render text: "User Session Not Found", status: :unauthorized
+    end
+  end
+
   def user_session_params
     params.permit(:email, :password)
   end
