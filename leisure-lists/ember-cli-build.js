@@ -6,6 +6,15 @@ module.exports = function(defaults) {
     // Add options here
   });
 
+  // Github Icon Fonts
+  app.import("bower_components/octicons/octicons/octicons.css");
+  app.import("bower_components/octicons/octicons/octicons.ttf", {
+    destDir: 'assets'
+  });
+  app.import("bower_components/octicons/octicons/octicons.woff", {
+    destDir: 'assets'
+  });
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

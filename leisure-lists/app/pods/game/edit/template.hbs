@@ -8,6 +8,11 @@
 </div>
 <div>
   <h3>Rating</h3>
+  <div>
+    {{#each ratingsStars as |star|}}
+    <span {{bind-attr value=star.value}} class="octicon octicon-star star" {{action "addRating" star.value}}></span>
+    {{/each}}
+  </div>
   {{input value=game.rating}}
 </div>
 <div>
