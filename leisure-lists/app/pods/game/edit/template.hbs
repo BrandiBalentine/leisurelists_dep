@@ -6,14 +6,13 @@
   <h3>System</h3>
   {{input value=game.system}}
 </div>
-<div>
+<div class="clearfix">
   <h3>Rating</h3>
-  <div>
+  <div class="rating">
     {{#each ratingsStars as |star|}}
-    <span {{bind-attr value=star.value}} class="octicon octicon-star star" {{action "addRating" star.value}}></span>
+    <span {{bind-attr class="star.class :octicon :octicon-star" value=star.value}} {{action "addRating" star.value}}></span>
     {{/each}}
   </div>
-  {{input value=game.rating}}
 </div>
 <div>
   <h3>Image</h3>

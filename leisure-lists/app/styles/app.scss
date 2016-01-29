@@ -4,6 +4,12 @@
   text-shadow: -1px 0 #A68559, 0 1px #A68559, 1px 0 #A68559, 0 -1px #A68559
 }
 
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  float: left;
+}
+
 .star-selected {
   @include selected
 }
@@ -18,5 +24,14 @@
 
   &:hover ~ .star {
     @include selected
+  }
+}
+
+.clearfix {
+  
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 }
