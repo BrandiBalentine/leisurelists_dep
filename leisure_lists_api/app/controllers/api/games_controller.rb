@@ -1,4 +1,12 @@
 class Api::GamesController < ApplicationController
+  def create
+    render json: Game.create!(game_params)
+  end
+
+  def destroy
+    render json: Game.find(params[:id]).destroy!
+  end
+
   def index
     render json: Game.all
   end
@@ -11,14 +19,6 @@ class Api::GamesController < ApplicationController
     game = Game.find(params[:id])
     game.update!(game_params)
     render json: game
-  end
-
-  def create
-    render json: Game.create!(game_params)
-  end
-
-  def destroy
-    render json: Game.find(params[:id]).destroy!
   end
 
   private
