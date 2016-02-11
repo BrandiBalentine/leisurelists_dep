@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+  ratings: DS.hasMany('rating'),
   createdAt: DS.attr('date'),
   image: DS.attr('string'),
   rating: DS.attr('number'),

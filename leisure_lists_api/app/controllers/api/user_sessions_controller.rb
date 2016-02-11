@@ -1,6 +1,6 @@
 class Api::UserSessionsController < ApplicationController
 
-  skip_before_action :logged_in?, on: :create
+  skip_before_action :authenticated?, only: [:login, :authenticate_session]
 
   def login
     unless user = User.find_by(email: user_session_params[:email])
@@ -18,6 +18,14 @@ class Api::UserSessionsController < ApplicationController
     if user_session = UserSession.find_by(session_id: params[:session_id])
       user_session.destroy!
       return render nothing: true
+    else
+      return render text: "User Session Not Found", status: :unauthorized
+    end
+  end
+
+  def authenticate_session
+    if user_session = UserSession.find_by(session_id: params[:session_id])
+      return render json: user_session
     else
       return render text: "User Session Not Found", status: :unauthorized
     end

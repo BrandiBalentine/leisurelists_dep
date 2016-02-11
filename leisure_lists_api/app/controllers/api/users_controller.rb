@@ -1,7 +1,4 @@
 class Api::UsersController < ApplicationController
-
-  skip_before_action :logged_in?, on: :create
-
   def create
     user = User.create(email: user_params[:email],
                        password: user_params[:password],
@@ -12,9 +9,9 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    user_session = UserSession.find_by(session_id: params[:id])
-    if user_session
-      return render json: user_session.user
+    user = User.find(params[:id])
+    if user
+      return render json: user
     else
       return render text: "Access Denied", status: :unauthorized
     end

@@ -9,12 +9,11 @@ export default Ember.Controller.extend({
         url: "http://localhost:3000/api/logout",
         data: {session_id: session_id}
       })
-      .done(function(){
+      .always(() => {
         this.get("cookie").removeCookie("session_id");
         this.get('currentUser').set('sessionId', null);
         this.transitionToRoute('sign-in');
-      }.bind(this)
-      );
+      });
     }
   }
 });

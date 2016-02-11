@@ -2,9 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   game: Ember.computed.alias('model'),
+  userRating: function(){
+  }.property('game', 'currentUser'),
 
   ratingsStars: function() {
-    var rating = this.get("game.rating");
+    var rating = this.get("userRating");
     var stars = [{class: "star", value: 1},
                  {class: "star", value: 2},
                  {class: "star", value: 3},
@@ -14,7 +16,7 @@ export default Ember.Controller.extend({
       stars[i].class = "star-selected";
     }
     return stars.reverse();
-  }.property("game.rating"),
+  }.property("userRating"),
   save: function() {
     return this.get('game').save().then(function(){
       return this.transitionToRoute('game', this.get('game'));

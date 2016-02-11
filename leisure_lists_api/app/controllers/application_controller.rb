@@ -3,17 +3,19 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
 
-  # before_action :logged_in?
+  before_action :authenticated?
 
-  def current_user
-    return unless params[:session_id]
-    session = UserSession.find_by(session_id: params[:session_id])
-    return session.user if session
+  def authenticated?
+    if user_session
+      return true
+    else
+      return render text: "User Session Not Found", status: :unauthorized
+    end
   end
 
-  def logged_in?
-    unless current_user.present?
-      return render text: "Access Denied", status: :unauthorized
+  def user_session
+    authenticate_or_request_with_http_token do |token, options|
+      return UserSession.find_by(session_id: token)
     end
   end
 end
