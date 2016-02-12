@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  private
+  
   def user_session
     authenticate_or_request_with_http_token do |token, options|
       return UserSession.find_by(session_id: token)

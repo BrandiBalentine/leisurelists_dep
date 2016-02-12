@@ -1,0 +1,37 @@
+// Rating colors
+@mixin selected {
+  color: #FFCC00;
+  text-shadow: -1px 0 #A68559, 0 1px #A68559, 1px 0 #A68559, 0 -1px #A68559
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  float: left;
+}
+
+.star-selected {
+  @include selected
+}
+
+.star {
+  color: #E6E6E6;
+  text-shadow: -1px 0 #B3B3B3, 0 1px #B3B3B3, 1px 0 #B3B3B3, 0 -1px #B3B3B3;
+
+  &:hover {
+    @include selected
+  }
+
+  &:hover ~ .star {
+    @include selected
+  }
+}
+
+.clearfix {
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

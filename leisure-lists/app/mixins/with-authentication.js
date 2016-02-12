@@ -6,9 +6,6 @@ export default Ember.Mixin.create({
   },
   beforeModel: function(){
     this._super();
-    if (this.get('currentUser')) {
-      return;
-    }
     var sessionId = this.get('cookie').getCookie('session_id');
     if (sessionId) {
       return Ember.$.ajax({

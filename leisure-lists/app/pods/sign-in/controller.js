@@ -15,17 +15,17 @@ export default Ember.Controller.extend({
           password: password
         }
       })
-      .done(function(data){
-        var sessionId = data.user.user_sessions[data.user.user_sessions.length - 1].session_id;
-        data.user.session_id = sessionId;
+      .done((data) => {
+        var userSessions = data.user.user_sessions;
+        var sessionId = userSessions[userSessions.length - 1].session_id;
         this.store.pushPayload("user", data);
         this.get('cookie').setCookie("session_id", sessionId);
-        this.store.find('user', data.user.id).then(function(user){
+        this.store.find('user', data.user.id).then((user) => {
           user.set('sessionId', sessionId);
           this.controllerFor('application').set("currentUser", user);
-        }.bind(this));
+        });
         this.transitionToRoute('games');
-      }.bind(this));
+      });
     }
   }
 });
