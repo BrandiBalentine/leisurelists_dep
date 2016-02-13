@@ -1,0 +1,36 @@
+// Set to default font-size of 16px for all browsers
+html  {
+  font-size: 16px;
+}
+
+// Body Font
+
+body {
+  color: $black;
+  font-family: sans-serif;
+  font-size: 62.5%; // 1em = 10px
+}
+
+// Headers and Paragraph Text
+
+h1 {
+  font-size: 3.6em; // 36px/10px
+}
+
+h2 {
+  font-size: 1.8em // 18px/10px
+}
+
+h3 {
+  font-size: 1.4em // 14px/10px
+}
+
+h4, p {
+  font-size: 1.2em // 12px/10px
+}
+
+// Links
+
+a {
+  text-decoration: none;
+}

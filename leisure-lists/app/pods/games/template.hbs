@@ -1,5 +1,5 @@
-<h1>{{header}}</h1>
+<h2>{{header}}</h2>
 {{#each sortedGames as |game|}}
-  {{#link-to 'game' game}}<h2>{{game.capitalizeTitle}}</h2>{{/link-to}}
+  {{#link-to 'game' game}}<h3>{{game.capitalizeTitle}}</h3>{{/link-to}}
 {{/each}}
 {{#link-to 'games.new'}}Add Game{{/link-to}}

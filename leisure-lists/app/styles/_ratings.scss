@@ -1,7 +1,7 @@
-// Rating colors
-@mixin selected {
-  color: #FFCC00;
-  text-shadow: -1px 0 #A68559, 0 1px #A68559, 1px 0 #A68559, 0 -1px #A68559
+// Rating stars
+%star-selected {
+  color: $star-selected;
+  text-shadow: -1px 0 $star-selected-border, 0 1px $star-selected-border, 1px 0 $star-selected-border, 0 -1px $star-selected-border
 }
 
 .rating {
@@ -11,19 +11,16 @@
 }
 
 .star-selected {
-  @include selected
+  @extend %star-selected
 }
 
 .star {
-  color: #E6E6E6;
-  text-shadow: -1px 0 #B3B3B3, 0 1px #B3B3B3, 1px 0 #B3B3B3, 0 -1px #B3B3B3;
+  color: $star;
+  text-shadow: -1px 0 $star-border, 0 1px $star-border, 1px 0 $star-border, 0 -1px $star-border;
 
-  &:hover {
-    @include selected
-  }
-
+  &:hover,
   &:hover ~ .star {
-    @include selected
+    @extend %star-selected
   }
 }
 
