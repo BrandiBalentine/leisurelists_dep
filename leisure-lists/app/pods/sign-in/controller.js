@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   email: null,
   password: null,
+  application: Ember.inject.controller('application'),
   actions: {
     signIn: function(){
       var email = this.get('email');
@@ -22,7 +23,7 @@ export default Ember.Controller.extend({
         this.get('cookie').setCookie("session_id", sessionId);
         this.store.find('user', data.user.id).then((user) => {
           user.set('sessionId', sessionId);
-          this.controllerFor('application').set("currentUser", user);
+          this.get("application").set("currentUser", user);
         });
         this.transitionToRoute('games');
       });

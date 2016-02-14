@@ -8,7 +8,13 @@ var ApplicationAdapter = DS.ActiveModelAdapter.extend({
       return {
         "Authorization": "Token " + Ember.get(document.cookie.match(/session_id\=([^;]*)/), "1"),
       };
-    }).volatile()
+    }).volatile(),
+
+    // Reload behavior (Added with ember-cli 1.13.15)
+    shouldReloadRecord: function() { return true; },
+    shouldReloadAll: function() { return true; },
+    shouldBackgroundReloadRecord: function() { return true; },
+    shouldBackgroundReloadAll: function() { return true; }
 });
 
 export default ApplicationAdapter;
