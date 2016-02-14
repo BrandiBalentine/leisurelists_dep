@@ -10,7 +10,7 @@
   <h3>Rating</h3>
   <div class="rating">
     {{#each ratingsStars as |star|}}
-    <span {{bind-attr class="star.class :octicon :octicon-star" value=star.value}} {{action "addRating" star.value}}></span>
+    <span class="{{star.class}} octicon octicon-star" value={{star.value}} {{action "addRating" star.value}}></span>
     {{/each}}
   </div>
 </div>
