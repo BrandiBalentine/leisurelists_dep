@@ -1,7 +1,8 @@
-import DS from "ember-data";
+import ActiveModelAdapter from 'active-model-adapter';
 import Ember from "ember";
 
-var ApplicationAdapter = DS.ActiveModelAdapter.extend({
+
+export default ActiveModelAdapter.extend({
     host: 'http://localhost:3000',
     namespace: 'api',
     headers: Ember.computed(function() {
@@ -16,5 +17,3 @@ var ApplicationAdapter = DS.ActiveModelAdapter.extend({
     shouldBackgroundReloadRecord: function() { return true; },
     shouldBackgroundReloadAll: function() { return true; }
 });
-
-export default ApplicationAdapter;

@@ -6,14 +6,6 @@
   <h3>System</h3>
   {{input value=game.system}}
 </div>
-<div class="clearfix">
-  <h3>Rating</h3>
-  <div class="rating">
-    {{#each ratingsStars as |star|}}
-    <span class="{{star.class}} octicon octicon-star" value={{star.value}} {{action "addRating" star.value}}></span>
-    {{/each}}
-  </div>
-</div>
 <div>
   <h3>Image</h3>
   {{#game-image-uploader game=game}}{{/game-image-uploader}}
@@ -21,6 +13,7 @@
 <div>
   <img src={{game.image}} height=100 />
 </div>
+{{rating-component item=game}}
 <button {{action save}}>Save</button>
 <button {{action delete}}>Delete</button>
 {{#link-to 'games'}}Back{{/link-to}}

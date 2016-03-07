@@ -5,11 +5,11 @@ export default Ember.Controller.extend({
 
   ratingsStars: function() {
     var rating = this.get("game.rating");
-    var stars = [{class: "star", value: 1},
-                 {class: "star", value: 2},
-                 {class: "star", value: 3},
-                 {class: "star", value: 4},
-                 {class: "star", value: 5}];
+    var stars = [{class: "star-unselected", value: 1},
+                 {class: "star-unselected", value: 2},
+                 {class: "star-unselected", value: 3},
+                 {class: "star-unselected", value: 4},
+                 {class: "star-unselected", value: 5}];
     for (var i = 0; i < rating; i++) {
       stars[i].class = "star-selected";
     }

@@ -2,7 +2,7 @@ export default {
   name: 'application-initializer',
   after: ['cookie'],
 
-  initialize: function(container, app) {
+  initialize: function(app) {
     app.inject('controller', 'cookie', 'cookie:main');
     app.inject('route', 'cookie', 'cookie:main');
   }

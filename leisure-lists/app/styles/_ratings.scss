@@ -1,34 +1,38 @@
 // Rating stars
+%star {
+  display: block;
+  float: right;
+  height: 20px;
+  width: 20px;
+}
+
 %star-selected {
-  color: $star-selected;
-  text-shadow: -1px 0 $star-selected-border, 0 1px $star-selected-border, 1px 0 $star-selected-border, 0 -1px $star-selected-border
+  @extend %star;
+  fill: $star-selected;
+  stroke: $star-border;
+  stroke-miterlimit: 10;
+  stroke-width: 0.16;
 }
 
 .rating {
-  unicode-bidi: bidi-override;
   direction: rtl;
   float: left;
+  unicode-bidi: bidi-override;
 }
 
 .star-selected {
-  @extend %star-selected
+  @extend %star-selected;
 }
 
-.star {
-  color: $star;
-  text-shadow: -1px 0 $star-border, 0 1px $star-border, 1px 0 $star-border, 0 -1px $star-border;
+.star-unselected {
+  @extend %star;
+  fill: $white;
+  stroke: $star-border;
+  stroke-miterlimit: 10;
+  stroke-width: 0.16;
 
   &:hover,
-  &:hover ~ .star {
+  &:hover ~ .star-unselected {
     @extend %star-selected
-  }
-}
-
-.clearfix {
-
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
   }
 }
